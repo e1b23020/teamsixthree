@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
+import oit.is.team63.nsk3.teamsixthree.model.UserInfo;
+
 @Mapper
 public interface ChamberMapper {
 
@@ -31,5 +33,8 @@ public interface ChamberMapper {
 
   @Select("SELECT chamber.userName,chamber.chamberName,userinfo.age,userinfo.height from chamber JOIN userinfo ON chamber.userName=userinfo.userName;")
   ArrayList<ChamberUser> selectAllChamberUser();
+
+  @Insert("INSERT INTO userinfo (userName,age,height) VALUES (#{userName},#{age},#{height});")
+  void insertUserInfo(UserInfo userinfo);
 
 }
