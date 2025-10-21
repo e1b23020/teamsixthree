@@ -37,7 +37,6 @@ public class Sample3AuthConfiguration {
                 .sameOrigin()));
     return http.build();
   }
-  
 
   /**
    * 認証処理に関する設定（誰がどのようなロールでログインできるか）
