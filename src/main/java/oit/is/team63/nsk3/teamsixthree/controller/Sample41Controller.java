@@ -1,5 +1,7 @@
 package oit.is.team63.nsk3.teamsixthree.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import oit.is.team63.nsk3.teamsixthree.model.Chamber;
 import oit.is.team63.nsk3.teamsixthree.model.ChamberMapper;
-
 
 /**
  * /sample3へのリクエストを扱うクラス authenticateの設定をしていれば， /sample3へのアクセスはすべて認証が必要になる
@@ -29,7 +30,7 @@ public class Sample41Controller {
     return "sample41.html";
   }
 
-    @GetMapping("step2/{id}")
+  @GetMapping("step2/{id}")
   public String sample42(@PathVariable Integer id, ModelMap model) {
     Chamber chamber2 = chamberMapper.selectById(id);
     model.addAttribute("chamber2", chamber2);
@@ -37,5 +38,9 @@ public class Sample41Controller {
     return "sample41.html";
   }
 
+  @GetMapping("step3")
+  public String sample43() {
+    return "sample43.html";
+  }
 
 }
